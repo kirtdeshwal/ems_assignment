@@ -17,8 +17,10 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'first_name',
+        'last_name',
         'email',
+        'role_id',
         'password',
     ];
 
@@ -43,5 +45,17 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function role() {
+        return $this->belongsTo(Role::class, 'role_id');
+    }
+
+    public function isAdmin() {
+        return $this->role_id == 1 ? true : false;
+    }
+
+    public function isFinance() {
+        return $this->role_id == 2 ? true : false;
     }
 }
