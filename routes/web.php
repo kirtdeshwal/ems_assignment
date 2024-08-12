@@ -26,12 +26,12 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware(['auth', IsFinance::class])->group(function () {
     Route::get('/finance', [FinanceController::class, 'index'])->name('finance.index');
-    Route::get('/finance/edit-payment/{eventId}', [FinanceController::class, 'editPayment'])->name('finance.edit-payment');
-    Route::post('/finance/update-payment/{eventId}', [FinanceController::class, 'updatePayment'])->name('finance.update-payment');
-    Route::get('/finance/request-payment-provider', [FinanceController::class, 'requestPaymentProvider'])->name('finance.request-payment-provider');
-    Route::post('/finance/store-payment-provider-request', [FinanceController::class, 'storePaymentProviderRequest'])->name('finance.store-payment-provider-request');
+    // Route::get('/finance/edit-payment/{eventId}', [FinanceController::class, 'editPayment'])->name('finance.edit-payment');
+    // Route::post('/finance/update-payment/{eventId}', [FinanceController::class, 'updatePayment'])->name('finance.update-payment');
+    // Route::get('/finance/request-payment-provider', [FinanceController::class, 'requestPaymentProvider'])->name('finance.request-payment-provider');
+    // Route::post('/finance/store-payment-provider-request', [FinanceController::class, 'storePaymentProviderRequest'])->name('finance.store-payment-provider-request');
 
-    Route::post('/finance/store-event', [EventController::class, 'store_event'])->name('finance.store-event');
+    // Route::post('/finance/store-event', [EventController::class, 'store_event'])->name('finance.store-event');
 
     Route::post('/event-payments', [EventPaymentController::class, 'store'])->name('event-payments.store');
     Route::put('/event-payments/{id}', [EventPaymentController::class, 'update'])->name('event-payments.update');
